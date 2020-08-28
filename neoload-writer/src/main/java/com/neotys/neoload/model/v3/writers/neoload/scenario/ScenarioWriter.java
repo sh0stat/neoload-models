@@ -48,5 +48,8 @@ public class ScenarioWriter {
 
         // Apm tag (dynatrace monitoring)
         scenario.getApm().ifPresent(apm -> ApmWriter.of(apm).writeXML(document, xmlScenario));
+
+        // RDV tag (dynatrace monitoring)
+        scenario.getRendezvousPolicies().forEach(rdv -> RendezvousPolicyWriter.of(rdv).writeXML(document, xmlScenario));
     }
 }
